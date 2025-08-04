@@ -1,13 +1,16 @@
 import axios from "axios";
 import toast from "react-hot-toast";
-import { Navigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const navigateTo = useNavigate();
   const logout = async () => {
     try {
-      await axios.get("http://localhost:4001/user/logout");
+      await axios.get("http://localhost:4001/user/logout",{
+        withCredentials:true,
+      });
       toast.success("User Logged Out Successfully");
-      <Navigate to="/login" />;
+      navigateTo("/login");
       localStorage.removeItem("jwt");
     } catch (error) {
       toast.error("Error Logging Out");
