@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 const userSchema =new mongoose.Schema({
+    googleId: { type: String } ,
     username:{
         type: String,
         required: true,
@@ -12,7 +13,7 @@ const userSchema =new mongoose.Schema({
     },
     password:{
         type: String,
-        required: true,
+        // required: true,
         select: false
     },
     token:{

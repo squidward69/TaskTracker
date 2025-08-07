@@ -31,7 +31,6 @@ function Login() {
       navigateTo("/");
       setEmail("");
       setPassword("");
-      
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.errors || "User Registration Failed");
@@ -65,7 +64,6 @@ function Login() {
                 id="email"
               />
             </div>
-
             {/* password */}
             <div>
               <label
@@ -83,14 +81,33 @@ function Login() {
                 id="password"
               />
             </div>
-
             <button
               type="submit"
               className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition duration-300"
             >
               Login
             </button>
+            {/* Divider */}
+            <div className="flex items-center my-6">
+              <div className="flex-grow border-t border-gray-300"></div>
+              <span className="mx-4 text-gray-500 text-sm">OR</span>
+              <div className="flex-grow border-t border-gray-300"></div>
+            </div>
 
+            <div className="flex flex-col space-y-4">
+              {/* Google Login Button */}
+              <a
+                href="http://localhost:4001/auth/google"
+                className="flex items-center justify-center w-full py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm font-medium text-gray-700 hover:bg-gray-50 transition"
+              >
+                <img
+                  src="https://www.google.com/favicon.ico"
+                  alt="Google"
+                  className="w-5 h-5 mr-2"
+                />
+                Continue with Google
+              </a>
+            </div>
             <p className="text-center text-sm text-gray-600 mt-4">
               Don't have an account?{" "}
               <Link

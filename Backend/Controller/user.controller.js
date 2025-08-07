@@ -53,7 +53,7 @@ export const login = async (req, res) => {
   const { email, password } = req.body;
   try {
     if (!email || !password) {
-      return res.status(400).json({ message: "All Fields are Required" });
+      return res.status(400).json({ errors: "All Fields are Required" });
     }
     const user = await User.findOne({ email }).select("+password");
     if (!user || !(await bcrypt.compare(password, user.password))) {

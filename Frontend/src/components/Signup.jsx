@@ -27,7 +27,7 @@ function Signup() {
           },
         }
       );
-      console.log(data);
+      // console.log(data);
       toast.success(data.message || "User Registered Successfully");
       localStorage.setItem("jwt", data.token);
       navigateTo("/login");
